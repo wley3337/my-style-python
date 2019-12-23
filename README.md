@@ -4,6 +4,10 @@
 # Install:
 
 * `pip install -r requirements.txt`
+* create a `./.env` file containing:
+ 
+    export APP_SETTINGS="config.DevelopmentConfig"
+  
 
 
 # Notes:
