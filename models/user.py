@@ -1,4 +1,5 @@
 from server import db
+from sqlalchemy.orm import relationship
 
 
 class User(db.Model):
@@ -7,6 +8,7 @@ class User(db.Model):
     first_name = db.Column(db.String())
     last_name = db.Column(db.String())
     username = db.Column(db.String())
+    outfits = relationship('Outfit', back_populates='users')
 
     def __init__(self, first_name, last_name, username):
         self.first_name = first_name
