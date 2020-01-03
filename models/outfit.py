@@ -12,7 +12,3 @@ class Outfit(db.Model):
     user_id = db.Column(db.Integer, ForeignKey('users.id'))
 
     user = relationship("User", back_populates='outfits')
-
-
-User.outfits = relationship(
-    'Outfits', order_by=Outfit.id, back_populates='user')
