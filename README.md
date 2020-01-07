@@ -9,8 +9,7 @@
 * create a `./.env` file containing:
  
     export APP_SETTINGS="config.DevelopmentConfig"
-  
-http://127.0.0.1:35825/?key=ba86d9a2-e60f-44f0-8be8-673161fe7105
+
 
 # Notes:
 
@@ -21,9 +20,13 @@ http://127.0.0.1:35825/?key=ba86d9a2-e60f-44f0-8be8-673161fe7105
 
 * [tutorial for ref](https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)
 * quick [SQLAlchemy ref](https://docs.sqlalchemy.org/en/13/orm/basic_relationships.html#relationship-patterns)
+* start the db `sudo systemctl start postgresql.service`
+* stop the db `sudo systemctl stop postgresql.service`
+
 
 ### Migrations 
   * Create the database in terminal under postgres user: `suod -iu postgres` under manjaro linux
+  From primiary user: 
   * `python manage.py db initi` sets up the Alembic first time `manage.py` is the setup file location
   * `python manage.py db migrate` pulls migrations from all model deffinitions 
   * `python manage.py db upgrade` updates the database from all migrations

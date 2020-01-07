@@ -9,6 +9,7 @@ class User(db.Model):
     last_name = db.Column(db.String())
     username = db.Column(db.String())
     outfits = relationship('Outfit', back_populates='users')
+    closets = relationship('Closet', back_populates='users')
 
     def __init__(self, first_name, last_name, username):
         self.first_name = first_name

@@ -14,9 +14,9 @@ class Result(db.Model):
     url = db.Column(db.String())
     # makes sure all the results are in JSON format
     # all the words counted  <-- this is example specific
-    # this is actually type json which is not supported by default in alchemy so it needed to be explicetly imported and stated
+    # this is actually type json which is not supported by default in alchemy so it needed to be explicitly imported and stated
     result_all = db.Column(JSON)
-    # all the words counteed minus the 'stop words' <-- this is example specific
+    # all the words counted minus the 'stop words' <-- this is example specific
     result_no_stop_words = db.Column(JSON)
 
     def __init__(self, url, result_all, result_no_stop_words):

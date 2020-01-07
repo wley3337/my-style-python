@@ -6,11 +6,12 @@ from flask_sqlalchemy import SQLAlchemy
 load_dotenv()
 
 app = Flask(__name__)
-# set environtment
+# set environment
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODFICATIONS'] = False
 db = SQLAlchemy(app)
-
+# import models after instantiation of db
+from models import user, outfit, closet
 # print env to console
 print(os.environ['APP_SETTINGS'])
 
