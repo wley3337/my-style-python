@@ -12,8 +12,16 @@
 
 
 # Notes:
+* Model def: 
+    - model_id = db.Column(db.Integer, ForeignKey('table_name.column_name'))
+    
+    - modelProperty = relationship(
+        'ClassName of ForeignModel',
+        secondary='join_table_name',
+        back_populates='correspondingForeignModelProperty')
+    - [time stamp](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) to look at
 
-* lock in new dependancies: `pip freeze > requirements.txt`
+* lock in new dependencies: `pip freeze > requirements.txt`
 * Start local env: `source env/bin/activate`
 * End local env: `deactivate`
 * [Local ENV info](https://realpython.com/python-virtual-environments-a-primer/)
@@ -25,7 +33,7 @@
 
 
 ### Migrations 
-  * Create the database in terminal under postgres user: `suod -iu postgres` under manjaro linux
+  * Create the database in terminal under postgres user: `sudo -iu postgres` under manjaro linux
   From primiary user: 
   * `python manage.py db initi` sets up the Alembic first time `manage.py` is the setup file location
   * `python manage.py db migrate` pulls migrations from all model deffinitions 

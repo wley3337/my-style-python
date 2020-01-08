@@ -1,5 +1,9 @@
 from app import db
 from sqlalchemy.orm import relationship
+"""
+    User Model: first_name, last_name, username
+    Has Many: outfits, closets
+"""
 
 
 class User(db.Model):
@@ -8,13 +12,11 @@ class User(db.Model):
     first_name = db.Column(db.String())
     last_name = db.Column(db.String())
     username = db.Column(db.String())
-    outfits = relationship('Outfit', back_populates='users')
-    closets = relationship('Closet', back_populates='users')
 
-    def __init__(self, first_name, last_name, username):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.username = username
+    # relationships
+    outfits = relationship('Outfit', back_populates='user')
+    closets = relationship('Closet', back_populates='user')
 
+    # this is how python will return objects (at least in terminal, not sure about db queries)
     def __repr__(self):
-        return'<id {}>'.format(self.id)
+        return'<id {}, username {}, outfits {}>'.format(self.id, self.username, self.outfits)

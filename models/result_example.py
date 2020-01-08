@@ -18,7 +18,11 @@ class Result(db.Model):
     result_all = db.Column(JSON)
     # all the words counted minus the 'stop words' <-- this is example specific
     result_no_stop_words = db.Column(JSON)
+    created_at = db.Column(db.DateTime(), server_default=db.func.now())
+    updated_at = db.Column(
+        db.DateTime(), server_default=db.func.now(), server_onupdate=db.func.now())
 
+    # not needed with the ORM the init will be under the column names from table defs
     def __init__(self, url, result_all, result_no_stop_words):
         self.url = url
         self.result_all = result_all
@@ -26,3 +30,14 @@ class Result(db.Model):
 
     def __repr__(self):
         return '<id {}>'.format(self.id)
+
+
+# class ChildModel(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+
+#     model_id = db.Column(db.Integer, ForeignKey('table_name.column_name'))
+
+#     modelProperty = relationship(
+#         'ClassName of Relationship',
+#         secondary='join_table_name',
+#         back_populates='correspondingForeignModelProperty')
