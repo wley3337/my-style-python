@@ -7,6 +7,7 @@ from sqlalchemy.orm import relationship
 class ClothingItem(db.Model):
     __tablename__ = 'clothing_items'
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
     image_url = db.Column(db.String())
     closet_id = db.Column(db.Integer, ForeignKey('closet.id'))
     created_at = db.Column(db.DateTime(), server_default=db.func.now())
@@ -25,3 +26,8 @@ class ClothingItem(db.Model):
         'Category',
         secondary='clothing_categories',
         back_populates='clothing_items')
+    tags = relationship(
+        'Tag',
+        secondary='clothing_tags',
+        back_populates='clothing'
+    )
