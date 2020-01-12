@@ -13,8 +13,12 @@ class Outfit(db.Model):
         db.DateTime(), server_default=db.func.now(), server_onupdate=db.func.now())
     user_id = db.Column(db.Integer, ForeignKey('users.id'))
     # relationships
+    # belongs to
     user = relationship("User", back_populates='outfits')
+    # many to many through
     clothing = relationship(
         'ClothingItem',
         secondary='clothing_outfits',
         back_populates='outfits')
+    # one to many
+    worn = relationship("Worn", back_populates='outfits')

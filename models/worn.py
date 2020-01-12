@@ -1,5 +1,6 @@
 from app import db
 from sqlalchemy import ForeignKey
+from sqlalchemy.orm import relationship
 
 
 class Worn(db.Model):
@@ -10,3 +11,6 @@ class Worn(db.Model):
     created_at = db.Column(db.DateTime(), server_default=db.func.now())
     updated_at = db.Column(
         db.DateTime(), server_default=db.func.now(), server_onupdate=db.func.now())
+    # relationships
+    # belongs to
+    outfit = relationship("Outfit", back_populates='worn')
