@@ -9,7 +9,7 @@ class ClothingItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())
     image_url = db.Column(db.String())
-    closet_id = db.Column(db.Integer, ForeignKey('closet.id'))
+    closet_id = db.Column(db.Integer, ForeignKey('closets.id'))
     created_at = db.Column(db.DateTime(), server_default=db.func.now())
     updated_at = db.Column(
         db.DateTime(), server_default=db.func.now(), server_onupdate=db.func.now())

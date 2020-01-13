@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 db = SQLAlchemy(app)
 # import models after instantiation of db
-from models import user, outfit, closet, clothing_item, clothing_outfit
+from models import user, outfit, closet, clothing_item, clothing_outfit, clothing_item, worn, clothing_tag, category, clothing_category, tag
 # print env to console
 print(os.environ['APP_SETTINGS'])
 
