@@ -24,6 +24,11 @@ def make_shell_context():
         'Closet': closet.Closet,
         'ClothingItem': clothing_item.ClothingItem,
         'ClothingOutfit': clothing_outfit.ClothingOutfit,
+        'Worn': worn.Worn,
+        'ClothingTag': clothing_tag.ClothingTag,
+        'Category': category.Category,
+        'ClothingCategory': clothing_category.ClothingCategory,
+        'Tag': tag.Tag,
     }
 
 
